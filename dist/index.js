@@ -223,11 +223,14 @@ var Swipeout = (0, _createReactClass2.default)({
     if (this.state.swiping) {
       //  move content to reveal swipeout
       if (posX < 0 && this.props.right) {
+        posX = posX < - rightWidth ? - rightWidth : posX;
         this.setState({ contentPos: Math.min(posX, 0) });
       } else if (posX > 0 && this.props.left) {
+        posX = posX > leftWidth ? leftWidth : posX;
         this.setState({ contentPos: Math.max(posX, 0) });
       };
     }
+
   },
 
   _handlePanResponderEnd: function _handlePanResponderEnd(e, gestureState) {
